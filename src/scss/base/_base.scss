@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+body {
+  font-family: 'Roboto';
+}
+
+
+// Breakpoints
+$breakpoints: (
+  "small": (min-width: 580px),
+   "medium": (min-width: 900px),
+    "large": (min-width: 1200px)
+    );

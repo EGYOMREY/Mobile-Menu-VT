@@ -1,0 +1,180 @@
+/// Navigation Bar
+
+.navigation {
+    background-color: $main;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.2rem;
+    overflow: hidden;
+    transition: all ease-in-out 250ms;
+
+    @include respond-to("medium") {
+        position: relative;
+        margin-top: 0.5em;
+        margin-left: 2em;
+        left: 0;
+    }
+
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include respond-to("small") {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            
+        }
+    }
+
+    &__item {
+        list-style: none;
+        flex: 1 1 auto;
+        position: relative;
+        margin: 0;
+        border-bottom: 1px solid darken($main, 10%);
+        padding: 1em;
+        
+
+        &:hover {
+            background-color: $link-hover-color;
+
+            @include respond-to("small") {
+                background: none;
+                color: darken($main, 20%);
+            }
+        }
+
+        @include respond-to("small") {
+            display: inline-block;
+            border: none;
+        }
+
+
+        & a {
+            flex-basis: 100%;
+            display: flex;
+            color: $link-color;
+            text-decoration: $link-decoration;
+
+            //align-items: center;
+            //justify-content: center;
+       
+        }
+    }
+
+    //this class is added and removed with Javascript
+    &.is-open {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.sub {
+    background-color: $link-hover-color;
+    display: none;
+}
+
+.displaySub {
+    display: block;
+    -webkit-animation: fadeIn 350ms;
+    animation: fadeIn 350ms;
+}
+
+/// MOBILE HAMBURGER MENU ///
+
+.navigation-toggle {
+    display: block;
+    background-color: $main;
+    padding: 1em;
+    position: absolute;
+    right: 0.7em;
+    top: 0.7em;
+    cursor: pointer;
+
+    @include respond-to("medium") {
+        display: none;
+    }
+}
+
+//this creates the 3 bars of the menu
+.hamburger, .hamburger::before, .hamburger::after {
+    content: '';
+    display: block;
+    width: 2em;
+    height: 3px;
+    background: $white;
+    transition: all ease-in-out 250ms;
+}
+
+//moving up
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+//moving down
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+//this class is added and removed with Javascript, it rotates the menu bars
+.hamburger.is-open {
+    transform: rotate(45deg);
+
+    &::after {
+        transform: rotate(-90deg) translateX(3px);
+    }
+
+    &::before {
+        opacity: 0;
+    }
+}
+
+.submenu-div {
+    position: absolute;
+    background-color: $link-hover-color;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    right: 19px;
+    top: 6px;
+}
+
+
+.submenu-button, .submenu-button::before {
+    position: absolute;
+    content: '';
+    display: block;
+    right: 32px;
+    top: 31px;
+    width: 1.2em;
+    height: 3px;
+    background: $white;
+    transition: all ease-in-out 250ms;
+}
+
+.submenu-button::before {
+    transform: rotate(-90deg) translateY(32px) translateX(31px);
+}
