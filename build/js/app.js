@@ -15,7 +15,7 @@ navToggle.addEventListener("click", e => {
 }, false);
 
 function toggleSubMenu(e) {
-    const subListing = e.target.parentNode.children[3];
+    const subListing = e.target.parentNode.children[2];
     subListing.classList.toggle('displaySub');
 }
 
