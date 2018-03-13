@@ -40,7 +40,7 @@
         position: relative;
         margin: 0;
         border-bottom: 1px solid darken($main, 10%);
-       
+        padding: 1em;
         
 
         &:hover {
@@ -63,7 +63,6 @@
             display: flex;
             color: $link-color;
             text-decoration: $link-decoration;
-             padding: 1em;
        
         }
     }
